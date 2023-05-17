@@ -1,6 +1,6 @@
 import { Schema,model,Types } from "mongoose";
 
-let collection = 'chapteres'
+let collection = 'chapters'
 
 let schema = new Schema({
     manga_id:{
@@ -10,7 +10,7 @@ let schema = new Schema({
     },
     title:{type:String,required:true},
     cover_photo:{type:String,required:true},
-    pages:{type:String,required:true},
+    pages:{type:Array,required:true},
     order:{type:Number,required:true},
 },{timestamps:true})
 
