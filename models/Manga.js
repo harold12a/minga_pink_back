@@ -11,7 +11,9 @@ let schema = new Schema({
     },
     company_id:{
         type:Types.ObjectId,
-        ref: 'users',
+
+        ref: 'categories',
+
         required:false
     },
     title:{type:String,required:true},
