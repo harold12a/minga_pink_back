@@ -3,6 +3,7 @@ import Category from '../../models/Category.js'
 export default async (req,res)=>{
     try {
         let all = await Category.find()
+
         if(all){
             return res.status(200).json({
                 response: all,
@@ -14,6 +15,7 @@ export default async (req,res)=>{
                 message:'Category NOT founds!'
             });
         }     
+
     } catch (error) {
         return res.status(500).json({
             response: null,
@@ -21,3 +23,4 @@ export default async (req,res)=>{
         })
     }
 }
+

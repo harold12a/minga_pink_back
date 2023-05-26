@@ -3,6 +3,7 @@ import Chapter from '../../models/Chapter.js';
 export default async (req,res)=>{
     try {
         let all = await Chapter.find()
+
         if(all){
             return res.status(200).json({
                 response: all,
@@ -14,10 +15,13 @@ export default async (req,res)=>{
                 message:' Chapter NOT founds!'
             });
         } 
+
     } catch (error) {
         return res.status(500).json({
             response: null,
             error: 'error'
         })
     }
+
 }
+
