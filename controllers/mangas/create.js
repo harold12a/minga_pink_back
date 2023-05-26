@@ -12,7 +12,7 @@ export default async(req,res)=>{
         }else{
             return res.status(400).json({
                 response: null,
-                message:'not found'
+                message:'Mangas NOT created'
             })
         }
     } catch (error) {

@@ -11,7 +11,7 @@ export default async (req,res)=>{
             }else{
                 return res.status(404).json({
                     response: null,
-                    message:'  authors not founds!'
+                    message:'  authors NOT founds!'
                 });
             }
         } catch (error) {
