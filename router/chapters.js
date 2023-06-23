@@ -1,6 +1,6 @@
 import { Router } from "express"
 import read from "../controllers/chapters/read.js"
-import create from "../controllers/categories/create.js"
+import create from "../controllers/chapters/create.js"
 
 let chaptersRouter = Router()
 
