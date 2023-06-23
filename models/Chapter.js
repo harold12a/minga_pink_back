@@ -8,7 +8,7 @@ let collection = 'chapters'
 let schema = new Schema({
     manga_id:{
         type:Types.ObjectId,
-        ref: 'users',
+        ref: 'mangas',
         required:true
     },
     title:{type:String,required:true},
