@@ -13,7 +13,7 @@ indexRouter.use('/authors', authorsRouter)
 indexRouter.use('/mangas', mangasRouter)
 indexRouter.use('/chapters', chaptersRouter)
 indexRouter.use('/categories', categoriesRouter)
-indexRouter.use('/auths', authsRouter)
+indexRouter.use('/auth', authsRouter)
 
 
 

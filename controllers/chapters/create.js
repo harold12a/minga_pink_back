@@ -1,7 +1,7 @@
 import Chapter from '../../models/Chapter.js'
 
 
-export default async(req,res)=>{
+export default async (req, res) => {
     try {
         let data = req.body 
         let one = await Chapter.create(data)
