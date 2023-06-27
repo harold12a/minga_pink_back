@@ -1,7 +1,7 @@
 import Chapter from '../../models/Chapter.js'
 
 
-export default async (req, res) => {
+export default async (req,res,next) => {
     try {
         let data = req.body 
         let one = await Chapter.create(data)
@@ -12,9 +12,6 @@ export default async (req, res) => {
             })
 
     } catch (error) {
-        return res.status(500).json({
-            response: null,
-            message: 'not created!'
-        })
+       return next(error)
     }
 }
