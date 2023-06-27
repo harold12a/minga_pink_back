@@ -3,7 +3,8 @@ import authorsRouter from './authors.js'
 import mangasRouter from './mangas.js'
 import chaptersRouter from './chapters.js'
 import categoriesRouter from './categories.js'
-import authsRouter from './auths.js'
+import authRouter from './auth.js'
+
 
 
 
@@ -13,7 +14,7 @@ indexRouter.use('/authors', authorsRouter)
 indexRouter.use('/mangas', mangasRouter)
 indexRouter.use('/chapters', chaptersRouter)
 indexRouter.use('/categories', categoriesRouter)
-indexRouter.use('/auth', authsRouter)
+indexRouter.use('/auth', authRouter)
 
 
 
