@@ -1,17 +1,28 @@
 import { Router } from "express";
+//controller
 import read from '../controllers/auth/read.js';
 import register from '../controllers/auth/register.js';
+import singin from "../controllers/auth/singin.js";
+import singout from "../controllers/auth/signout.js";
+import token from "../controllers/auth/sign-token.js";
+// middlewares
 import accountExist from "../middlewares/accountExist.js";
 import createHash from "../middlewares/createHash.js";
-import singin from "../controllers/auth/singin.js";
 import accountNotExists from "../middlewares/accountNotExists.js";
 import isValidPassword from "../middlewares/isValidPassword.js";
 import generateToken from "../middlewares/generateToken.js";
+import validator from "../middlewares/validator.js";
+import passport from "../middlewares/passport.js";
+// schemas
+import register_schema from '../schemas/auth/register.js'
+import singin_schema from "../schemas/auth/singin.js";
 
-let authsRouter = Router();
+let authRouter = Router();
 
-authsRouter.get('/',read)
-authsRouter.post('/register',accountExist,createHash,register) 
-authsRouter.post('/singin',accountNotExists,isValidPassword,generateToken,singin)
+authRouter.get('/',read)
+authRouter.post('/register',validator(register_schema),accountExist,createHash,register) 
+authRouter.post('/singin',validator(singin_schema),accountNotExists,isValidPassword,generateToken,singin)
+authRouter.post('/signout', passport.authenticate('jwt',{ session:false }), singout)
+authRouter.post('/token', passport.authenticate('jwt',{ session:false }), generateToken, token)
 
-export default authsRouter
+export default authRouter
