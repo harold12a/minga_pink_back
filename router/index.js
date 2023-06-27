@@ -3,7 +3,7 @@ import authorsRouter from './authors.js'
 import mangasRouter from './mangas.js'
 import chaptersRouter from './chapters.js'
 import categoriesRouter from './categories.js'
-import authsRouter from './auths.js'
+import authsRouter from './auth.js'
 
 
 

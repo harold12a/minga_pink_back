@@ -2,11 +2,11 @@ import { Schema,model } from 'mongoose'
 
 let collection = 'users'
 let schema = new Schema({
-    email: {type: String, required: true},
-    password: {type: String, required: true},
-    photo: {type: String, required: true},
-    role: {type: Number, required: true},
-    online:{type: Boolean, required: false}
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+    photo: { type: String, default:'https://w7.pngwing.com/pngs/741/68/png-transparent-user-computer-icons-user-miscellaneous-cdr-rectangle-thumbnail.png' },
+    role: { type: Number, default:0 },
+    online: { type: Boolean, default:false }
 },{
     timestamps:true
 })

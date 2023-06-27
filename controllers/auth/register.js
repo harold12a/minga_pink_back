@@ -1,6 +1,6 @@
 import User from '../../models/User.js'
 
-export default async(req,res)=>{
+export default async(req,res,next)=>{
     try {
         let data = req.body 
         let all = await User.create(data)
@@ -9,12 +9,7 @@ export default async(req,res)=>{
                 response: all,
                 message:'created'
             })
-   
     } catch (error) {
-        return res.status(500).json({
-            response: null,
-            success: false,
-            message: 'not found!'
-        })
+        return next(error)
     }
 }
