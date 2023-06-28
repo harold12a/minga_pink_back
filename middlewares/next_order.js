@@ -1,0 +1,23 @@
+import Chapter from "../models/Chapter.js"
+
+
+const nextOrderMiddleware = async (req, res, next) => {
+    try {
+        const lastChapter = await Chapter.findOne({ manga: req.body.manga }).sort({ order: -1 }).exec();
+        let nextOrder = 1;
+
+        if (lastChapter) {
+        nextOrder = lastChapter + 1;
+        }
+
+        req.body.order = nextOrder;
+
+        return next();
+
+    } catch (error) {
+        next(error);
+    }
+};
+
+export default nextOrderMiddleware
+
