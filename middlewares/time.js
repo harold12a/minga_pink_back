@@ -1,3 +1,4 @@
+
 let counter = 1
 export default function time (req,res,next){
     let time = new Date()

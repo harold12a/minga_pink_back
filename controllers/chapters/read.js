@@ -1,10 +1,10 @@
 import Chapter from '../../models/Chapter.js';
 
-export default async (req,res)=>{
+export default async (req,res,next)=>{
     try {
         let all = await Chapter.find()
 
-        if(all){
+        if(all.length > 0){
             return res.status(200).json({
                 response: all,
                 message: 'Chapter found'
@@ -17,10 +17,7 @@ export default async (req,res)=>{
         } 
 
     } catch (error) {
-        return res.status(500).json({
-            response: null,
-            error: 'error'
-        })
+      return next(error)
     }
 
 }

@@ -1,3 +1,4 @@
+
 const not_found_hanlder = (req,res,next)=>{
     return res.status(404).json({
         success:false,
@@ -6,3 +7,4 @@ const not_found_hanlder = (req,res,next)=>{
 }
 
 export default not_found_hanlder
+
