@@ -6,7 +6,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 // time
 // import time from './middlewares/time.js';
-import not_found_hanlder from './middlewares/not_found_handler.js';
+import not_found_handler from './middlewares/not_found_handler.js';
 import error_handler from './middlewares/error.handler.js';
 
 
@@ -25,10 +25,8 @@ server.use(morgan('dev'))                           //para registrar peticiones 
 
 //router
 server.use('/api', indexRouter)
-
 // despues del  router
-server.use(not_found_hanlder)
-
+server.use(not_found_handler)
 // de bajo del router porque depente de las peticiones
 server.use(error_handler)
 
