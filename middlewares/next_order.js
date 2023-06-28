@@ -3,7 +3,7 @@ import Chapter from "../models/Chapter.js"
 
 const nextOrderMiddleware = async (req, res, next) => {
     try {
-        const lastChapter = await Chapter.findOne({ manga: req.body.manga }).sort({ order: -1 }).exec();
+        const lastChapter = await Chapter.findOne({ manga: req.body.manga }).sort({ order: -1 });
         let nextOrder = 1;
 
         if (lastChapter) {

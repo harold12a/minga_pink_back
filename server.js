@@ -25,8 +25,6 @@ server.use(morgan('dev'))                           //para registrar peticiones 
 
 //router
 server.use('/api', indexRouter)
-server.use(not_found_handler)
-server.use(error_handler)
 
 // despues del  router
 server.use(not_found_hanlder)
