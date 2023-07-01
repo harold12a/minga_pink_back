@@ -4,7 +4,7 @@ import Company from "../models/Company"
 // esat funcion sirve para verificar que el usuario valla hacer el crud 
 export default async (req,res,next) =>{
     // req.user tiene los datos del user
-    // debio buscar un autor/empresa
+    // debio buscar un autcor/empresa
     // que coincida que su user_id sea igual al id de ese USER
     if(req.user.role ===1 || req.user.role ===2){
 

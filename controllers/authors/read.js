@@ -1,6 +1,6 @@
 import Author from "../../models/Author.js";
 
-export default async (req,res)=>{
+export default async (req,res, next)=>{
         try {
             let all = await Author.find()
             if(all){
