@@ -9,8 +9,8 @@ export default async (req, res, next) => {
                 user: req.body.user,
                 token: req.body.token
             },
-            messges: 'signed in!'
-        })
+            message: 'signed in!'
+        });
     } catch (error) {
         return next(error);
     }
