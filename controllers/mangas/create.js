@@ -1,27 +1,14 @@
 import Manga from '../../models/Manga.js'
 
-export default async(req,res)=>{
+export default async(req,res,next)=> {
     try {
-        let data = req.body 
-        let one = Manga.create(data)
-        if(one){
-            return res.status(201).json({
-                response: one,
-                message:'created'
-            })
-        }else{
-            return res.status(400).json({
-                response: null,
-
-                message:'Mangas NOT created'
-
-
-            })
-        }
-    } catch (error) {
-        return res.status(500).json({
-            response: null,
-            message: 'not found!'
+        let one = await Manga.create(req.body)
+        return res.status(201).json({
+            success: true,
+            message: 'created',
+            response: one
         })
+    } catch (error) {
+        next(error)
     }
 }

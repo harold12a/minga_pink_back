@@ -1,25 +1,20 @@
-import Manga from '../../models/Manga.js';
+import Manga from "../../models/Manga.js"
 
-export default async (req,res)=>{
+export default async (req, res,next) => {
     try {
         let all = await Manga.find()
-
-        if(all){
+        if (all) {
             return res.status(200).json({
                 response: all,
-                message: ' Mangas found'
+                message: 'mangas found!'
             })
-        } else{
+        } else {
             return res.status(404).json({
                 response: null,
-                message:' Mangas NOT founds!'
-            });
+                message: 'mangas not found'
+            })
         }
-
     } catch (error) {
-        return res.status(500).json({
-            response: null,
-            error: 'error'
-        })
+       next(error)
     }
 }
