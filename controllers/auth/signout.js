@@ -1,23 +1,13 @@
 import User from '../../models/User.js';
 
-export default async (req,res,next) => {
+export default async (req, res, next) => {
     try {
-         await User.findOneAndUpdate(
-            // objeto de busqueda
-            // objetos a cambiar
-            {email:req.user.email},  // user es una propiedad que inyecta la estrategia de passport si tiene exito
-            {online:false},    
-        )
-        // por eso no hace falta la condicion si existe user (aunque no va ser necesaria)
+        await User.findOneAndUpdate(req.user._id, { online: false },)
+
         return res.status(200).json({
-            success: true,
-            responde:null,
-            messages :['disconnected!']
-            // {
-            //     user:req.body.user,
-            //     token:req.body.token
-            // },
-            // messges:['signed in!']
+         responde: 'id: ' + req.user._id,
+          messages: 'User sing out !!'
+
         })
     } catch (error) {
         return next(error);

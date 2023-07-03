@@ -19,14 +19,10 @@ import singin_schema from "../schemas/auth/singin.js";
 
 let authRouter = Router();
 
-authRouter.post('/singin',validator(singin_schema),accountNotExists,isValidPassword,generateToken,singin)
-authRouter.post('/token', passport.authenticate('jwt',{ session:false }), generateToken, token)
-authRouter.post('/register',validator(register_schema),accountExist,createHash,register) 
-authRouter.post('/signout', passport.authenticate('jwt',{ session:false }), singout)
-authRouter.get('/', passport.authenticate('jwt',{ session:false }),read)
-
-
-
-
+authRouter.post('/singin', validator(singin_schema), accountNotExists, isValidPassword, generateToken, singin);
+authRouter.post('/token', passport.authenticate('jwt', { session: false }), generateToken, token);
+authRouter.post('/register', validator(register_schema), accountExist, createHash, register);
+authRouter.post('/signout', passport.authenticate('jwt', { session: false }), singout);
+authRouter.get('/', passport.authenticate('jwt', { session: false }), read);
 
 export default authRouter
