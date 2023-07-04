@@ -5,9 +5,9 @@ export default async (req, res, next) => {
         await User.findOneAndUpdate(req.user._id, { online: true });
         return res.status(200).json({
             success: true,
-            responde: {
-                user: req.body.user,
-                token: req.body.token
+            response: {
+                user: req.user,
+                token: req.token
             },
             message: 'signed in!'
         });
