@@ -1,5 +1,5 @@
-import Author from "../models/Author"
-import Company from "../models/Company"
+import Author from "../models/Author.js"
+import Company from "../models/Company.js"
 
 // esat funcion sirve para verificar que el usuario valla hacer el crud 
 export default async (req,res,next) =>{
