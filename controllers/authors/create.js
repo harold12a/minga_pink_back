@@ -6,9 +6,9 @@ export default async (req, res, next) => {
         let one = await Author.create(data)
 
         return res.status(201).json({
-            success: false,
-            response: one,
-            message: 'created'
+            success: true,
+            message: 'created',
+            response: one
         })
 
     } catch (error) {
