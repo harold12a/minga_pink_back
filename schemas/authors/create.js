@@ -27,11 +27,11 @@ const schema = joi.object({
         "date.base" : "Must be a valid date",
         "date.min" : "Must be a minimum of the current date"
     }),
-    urlrofile: joi.string().uri().required().messages({
-        "any.required" : "urlrofile is required",
-        "string.uri" : "urlrofile must be an URL",
-        "string.base" : "urlrofile must be an URL",
-        "string.empty" : "urlrofile is required"
+    photo: joi.string().uri().required().messages({
+        "any.required" : "Photo is required",
+        "string.uri" : "Photo must be an URL",
+        "string.base" : "Photo must be an URL",
+        "string.empty" : "Photo is required"
     }),
    
 })
