@@ -8,17 +8,20 @@ import is_active from "../middlewares/is_active.js"
 import is_property_of from "../middlewares/is_property_of.js"
 import exists_order from "../middlewares/exists_order.js"
 import passport from "../middlewares/passport.js"
+import validator from "../middlewares/validator.js"
+import schema_create from "../schemas/chapters/create.js"
 
 let chaptersRouter = Router()
 
 chaptersRouter.get('/', read)
 chaptersRouter.post('/',
-    passport.authenticate('jwt', { session: false }),     //verifico que el usuario haya iniciado sesión y esté autenticado
+    passport.authenticate('jwt', { session: false }),
+    validator(schema_create), 
     exists_order,
     next_order,
+    has_permition,
     is_active,
     is_property_of,
-    has_permition,
     add_cover_photo,
     create)
 

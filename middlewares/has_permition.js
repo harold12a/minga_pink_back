@@ -22,6 +22,6 @@ export default async (req,res,next) =>{
     return res.status(404).json({
         success: true,
         response:null,
-        message: 'not allow'
+        message: ['not allow']
     })
 }
