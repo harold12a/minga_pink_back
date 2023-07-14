@@ -11,6 +11,7 @@ const schema = joi.object({
             'string.min': 'title must have at least one character',
             'string.max': 'the title must not exced 50 characters'
         }),
+
     pages: joi.string()
         .required()
         .messages({

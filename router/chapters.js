@@ -11,10 +11,12 @@ import passport from "../middlewares/passport.js"
 import validator from "../middlewares/validator.js"
 import schema_create from "../schemas/chapters/create.js"
 
+
 let chaptersRouter = Router()
 
 chaptersRouter.get('/', read)
 chaptersRouter.post('/',
+
     passport.authenticate('jwt', { session: false }),
     validator(schema_create), 
     exists_order,
